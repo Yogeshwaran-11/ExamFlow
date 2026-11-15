@@ -1,0 +1,3093 @@
+{
+  "meta": {
+    "title": "Final Exam Study Plan: 16 Nov to 9 Dec 2026",
+    "student": "Yogesh",
+    "generatedFrom": "PDF — Final_Exam_Study_Plan_16_Nov_to_9_Dec_2026.pdf",
+    "timezone": "Asia/Kolkata",
+    "schemaVersion": "1.0.0",
+    "planStart": "2026-11-16",
+    "planEnd": "2026-12-09"
+  },
+  "subjects": [
+    {
+      "id": "fs",
+      "name": "Full Stack Development",
+      "shortName": "Full Stack",
+      "examDate": "2026-11-27",
+      "examTime": "morning",
+      "examDay": "Friday",
+      "color": "#6366f1",
+      "priority": 1,
+      "handwritingRequired": true,
+      "formulaSheetRequired": true,
+      "handwritingNote": "Full Stack code answers are assumed to be handwritten. Practise on paper."
+    },
+    {
+      "id": "ads",
+      "name": "Advanced Data Structures",
+      "shortName": "ADS",
+      "examDate": "2026-11-30",
+      "examTime": "morning",
+      "examDay": "Monday",
+      "color": "#8b5cf6",
+      "priority": 1,
+      "handwritingRequired": false,
+      "formulaSheetRequired": true,
+      "handwritingNote": "Traces (trees, hashing, sorting) written by hand as practice."
+    },
+    {
+      "id": "it",
+      "name": "Information Theory and Coding",
+      "shortName": "Info Theory",
+      "examDate": "2026-12-02",
+      "examTime": "morning",
+      "examDay": "Wednesday",
+      "color": "#0ea5e9",
+      "priority": 2,
+      "handwritingRequired": false,
+      "formulaSheetRequired": true,
+      "handwritingNote": "Numericals solved on paper. Encode/decode problems by hand."
+    },
+    {
+      "id": "co",
+      "name": "Computer Organization",
+      "shortName": "Comp Org",
+      "examDate": "2026-12-04",
+      "examTime": "morning",
+      "examDay": "Friday",
+      "color": "#f59e0b",
+      "priority": 2,
+      "handwritingRequired": true,
+      "formulaSheetRequired": true,
+      "handwritingNote": "Every table, trace and diagram written on paper."
+    },
+    {
+      "id": "java",
+      "name": "Java",
+      "shortName": "Java",
+      "examDate": "2026-12-07",
+      "examTime": "morning",
+      "examDay": "Monday",
+      "color": "#10b981",
+      "priority": 2,
+      "handwritingRequired": true,
+      "formulaSheetRequired": true,
+      "handwritingNote": "Every Java program written by hand first, then checked by running it."
+    },
+    {
+      "id": "prob",
+      "name": "Probability and Statistics",
+      "shortName": "Prob & Stats",
+      "examDate": "2026-12-09",
+      "examTime": "morning",
+      "examDay": "Wednesday",
+      "color": "#ec4899",
+      "priority": 3,
+      "handwritingRequired": false,
+      "formulaSheetRequired": true,
+      "handwritingNote": "Numerical problems solved on paper. At least 3 per topic."
+    }
+  ],
+  "studyConstraints": {
+    "maxFullDayHours": 6.5,
+    "maxFullDayMinutes": 390,
+    "plannedStudyMinutesPerDay": 330,
+    "recallBufferMinutesPerDay": 60,
+    "maxExamDayAfternoonHours": 3.5,
+    "maxExamDayAfternoonMinutes": 210,
+    "lightDays": [
+      "2026-11-26",
+      "2026-11-29",
+      "2026-12-01",
+      "2026-12-03",
+      "2026-12-06"
+    ],
+    "examDays": [
+      "2026-11-27",
+      "2026-11-30",
+      "2026-12-02",
+      "2026-12-04",
+      "2026-12-07",
+      "2026-12-09"
+    ],
+    "timezone": "Asia/Kolkata",
+    "handwritingSubjects": [
+      "java",
+      "co",
+      "fs"
+    ],
+    "numericalMinimumProblems": 3,
+    "handwrittenProgramMinimum": 1,
+    "dailyBlockStructure": {
+      "Main": {
+        "hours": 2,
+        "minutes": 120,
+        "use": "The next exam's core material"
+      },
+      "Second": {
+        "hours": 1.5,
+        "minutes": 90,
+        "use": "Next subject in exam order"
+      },
+      "InformationTheory": {
+        "hours": 1,
+        "minutes": 60,
+        "use": "Solve numericals on paper, do not just reread"
+      },
+      "Rotation": {
+        "hours": 1,
+        "minutes": 60,
+        "use": "Java, Computer Organization (CO) or Probability, as listed"
+      },
+      "RecallBuffer": {
+        "hours": 1,
+        "minutes": 60,
+        "use": "Closed-book redo of yesterday's topic, 3 numericals or 1 handwritten program, then catch up on anything missed"
+      }
+    }
+  },
+  "recallRules": {
+    "description": "Active recall: redo yesterday's topic closed-book, then again about 3 days later and a week later.",
+    "intervals": [
+      {
+        "recallNumber": 1,
+        "daysAfter": 1,
+        "description": "Redo yesterday's topic closed-book"
+      },
+      {
+        "recallNumber": 2,
+        "daysAfter": 3,
+        "description": "Recall again about 3 days later"
+      },
+      {
+        "recallNumber": 3,
+        "daysAfter": 7,
+        "description": "Recall again about a week later"
+      }
+    ],
+    "conflictRule": "If a recall date falls on an exam day or unavailable day, flag it for review — do not silently move it.",
+    "numericalRecall": "Solve at least 3 problems on paper per numerical recall.",
+    "programRecall": "Write at least 1 handwritten program per program recall."
+  },
+  "catchUpRules": [
+    "Cut skimmed topics first.",
+    "Then reduce detail in Priority 3 topics.",
+    "Never cut the next exam's practice.",
+    "Never cut Information Theory numericals before 2 December.",
+    "Never cut Probability test and ANOVA practice.",
+    "If two consecutive days slip, drop low-priority topics at once rather than trying to repay every missed hour."
+  ],
+  "milestones": [
+    {
+      "id": "m1",
+      "date": "2026-11-22",
+      "description": "Full Stack Units I to III and ADS Units I to II learned.",
+      "subjectsInvolved": [
+        "fs",
+        "ads"
+      ]
+    },
+    {
+      "id": "m2",
+      "date": "2026-11-24",
+      "description": "ADS fully learned; IT Units I and II started on cyclic codes.",
+      "subjectsInvolved": [
+        "ads",
+        "it"
+      ]
+    },
+    {
+      "id": "m3",
+      "date": "2026-11-26",
+      "description": "Full Stack fully learned, mock and sheet done.",
+      "subjectsInvolved": [
+        "fs"
+      ]
+    },
+    {
+      "id": "m4",
+      "date": "2026-11-29",
+      "description": "ADS revised twice; IT Units I to IV learned; CO Units I, II and IV, and most of V, learned.",
+      "subjectsInvolved": [
+        "ads",
+        "it",
+        "co"
+      ]
+    },
+    {
+      "id": "m5",
+      "date": "2026-12-01",
+      "description": "IT every numerical type solved at least once; CO Unit III learned.",
+      "subjectsInvolved": [
+        "it",
+        "co"
+      ]
+    },
+    {
+      "id": "m6",
+      "date": "2026-12-03",
+      "description": "CO numericals and diagrams practised, with no new unit.",
+      "subjectsInvolved": [
+        "co"
+      ]
+    },
+    {
+      "id": "m7",
+      "date": "2026-12-05",
+      "description": "Java Units I to V learned.",
+      "subjectsInvolved": [
+        "java"
+      ]
+    },
+    {
+      "id": "m8",
+      "date": "2026-12-08",
+      "description": "Probability Units I to V learned; formula sheet done.",
+      "subjectsInvolved": [
+        "prob"
+      ]
+    }
+  ],
+  "skimmedTopics": [
+    {
+      "id": "skim-fs-1",
+      "subjectId": "fs",
+      "topic": "code splitting (two-line idea)",
+      "instruction": "Read once inside the session where it appears.",
+      "priority": 4
+    },
+    {
+      "id": "skim-fs-2",
+      "subjectId": "fs",
+      "topic": "Date and RegExp (a few methods each)",
+      "instruction": "Read once inside the session where it appears.",
+      "priority": 4
+    },
+    {
+      "id": "skim-ads-1",
+      "subjectId": "ads",
+      "topic": "d-heaps (inside the binary heap session)",
+      "instruction": "Read once inside the binary heap session.",
+      "priority": 4
+    },
+    {
+      "id": "skim-ads-2",
+      "subjectId": "ads",
+      "topic": "ADT overview",
+      "instruction": "Read once inside the session where it appears.",
+      "priority": 4
+    },
+    {
+      "id": "skim-it-1",
+      "subjectId": "it",
+      "topic": "implementation issues in video compression",
+      "instruction": "Read once inside the session where it appears.",
+      "priority": 4
+    },
+    {
+      "id": "skim-it-2",
+      "subjectId": "it",
+      "topic": "digitized documents and pictures",
+      "instruction": "Read once inside the session where it appears.",
+      "priority": 4
+    },
+    {
+      "id": "skim-it-3",
+      "subjectId": "it",
+      "topic": "GIF and TIFF (memorise features)",
+      "instruction": "Memorise features only. Read once.",
+      "priority": 4
+    },
+    {
+      "id": "skim-co-1",
+      "subjectId": "co",
+      "topic": "memory locations and operations",
+      "instruction": "Read once inside the session where it appears.",
+      "priority": 4
+    },
+    {
+      "id": "skim-co-2",
+      "subjectId": "co",
+      "topic": "CISC-style processors",
+      "instruction": "Read once inside the session where it appears.",
+      "priority": 4
+    },
+    {
+      "id": "skim-co-3",
+      "subjectId": "co",
+      "topic": "secondary storage",
+      "instruction": "Read once inside the session where it appears.",
+      "priority": 4
+    },
+    {
+      "id": "skim-java-1",
+      "subjectId": "java",
+      "topic": "command-line arguments",
+      "instruction": "Read once inside the session where it appears.",
+      "priority": 4
+    },
+    {
+      "id": "skim-java-2",
+      "subjectId": "java",
+      "topic": "variable-length arguments",
+      "instruction": "Read once inside the session where it appears.",
+      "priority": 4
+    },
+    {
+      "id": "skim-java-3",
+      "subjectId": "java",
+      "topic": "operators and control statements",
+      "instruction": "Read once inside the session where it appears.",
+      "priority": 4
+    }
+  ],
+  "dailySchedule": [
+    {
+      "date": "2026-11-16",
+      "dayLabel": "Mon 16 Nov",
+      "phase": 1,
+      "isLightDay": false,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "notes": "Phase 1 begins. Standard block structure: Main 120 + Second 90 + IT 60 + Rotation 60 + Recall 60.",
+      "blocks": [
+        {
+          "id": "2026-11-16-main",
+          "blockName": "Main",
+          "blockLabel": "Main (2h)",
+          "subjectId": "fs",
+          "plannedMinutes": 120,
+          "topics": [
+            "HTML5",
+            "CSS",
+            "tables",
+            "forms",
+            "Bootstrap grid and components"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Mon 16, Main column"
+        },
+        {
+          "id": "2026-11-16-second",
+          "blockName": "Second",
+          "blockLabel": "Second (1.5h)",
+          "subjectId": "ads",
+          "plannedMinutes": 90,
+          "topics": [
+            "ADT overview",
+            "doubly and circular lists",
+            "polynomial ADT",
+            "radix sort"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "skimmedTopicsInBlock": [
+            "ADT overview"
+          ],
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Mon 16, Second column"
+        },
+        {
+          "id": "2026-11-16-it",
+          "blockName": "InformationTheory",
+          "blockLabel": "IT (1h)",
+          "subjectId": "it",
+          "plannedMinutes": 60,
+          "topics": [
+            "Uncertainty",
+            "information",
+            "entropy"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Mon 16, IT column"
+        },
+        {
+          "id": "2026-11-16-rotation",
+          "blockName": "Rotation",
+          "blockLabel": "Rotation (1h)",
+          "subjectId": "java",
+          "plannedMinutes": 60,
+          "topics": [
+            "OOP principles",
+            "data types",
+            "arrays",
+            "classes and objects"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Mon 16, Rotation column"
+        },
+        {
+          "id": "2026-11-16-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall + Buffer (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Redo an HTML form from memory",
+            "3 entropy sums"
+          ],
+          "taskType": "recall",
+          "isHandwritten": true,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Mon 16, Recall+buffer column"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "dayLabel": "Tue 17 Nov",
+      "phase": 1,
+      "isLightDay": false,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "notes": "Standard block structure.",
+      "blocks": [
+        {
+          "id": "2026-11-17-main",
+          "blockName": "Main",
+          "blockLabel": "Main (2h)",
+          "subjectId": "fs",
+          "plannedMinutes": 120,
+          "topics": [
+            "JS variables",
+            "operators",
+            "control flow",
+            "functions",
+            "arrow functions",
+            "scope"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Tue 17, Main column"
+        },
+        {
+          "id": "2026-11-17-second",
+          "blockName": "Second",
+          "blockLabel": "Second (1.5h)",
+          "subjectId": "ads",
+          "plannedMinutes": 90,
+          "topics": [
+            "tree basics",
+            "traversals",
+            "expression trees",
+            "BST insert and delete"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Tue 17, Second column"
+        },
+        {
+          "id": "2026-11-17-it",
+          "blockName": "InformationTheory",
+          "blockLabel": "IT (1h)",
+          "subjectId": "it",
+          "plannedMinutes": 60,
+          "topics": [
+            "Source coding theorem",
+            "data compaction",
+            "discrete memoryless channels"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Tue 17, IT column"
+        },
+        {
+          "id": "2026-11-17-rotation",
+          "blockName": "Rotation",
+          "blockLabel": "Rotation (1h)",
+          "subjectId": "co",
+          "plannedMinutes": 60,
+          "topics": [
+            "functional data units",
+            "number representation",
+            "performance",
+            "instruction sequencing",
+            "addressing modes"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Tue 17, Rotation column"
+        },
+        {
+          "id": "2026-11-17-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall + Buffer (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Delete from a BST by hand",
+            "3 entropy sums"
+          ],
+          "taskType": "recall",
+          "isHandwritten": true,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Tue 17, Recall+buffer column"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-18",
+      "dayLabel": "Wed 18 Nov",
+      "phase": 1,
+      "isLightDay": false,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "notes": "Standard block structure.",
+      "blocks": [
+        {
+          "id": "2026-11-18-main",
+          "blockName": "Main",
+          "blockLabel": "Main (2h)",
+          "subjectId": "fs",
+          "plannedMinutes": 120,
+          "topics": [
+            "objects",
+            "arrays",
+            "collections",
+            "Date",
+            "RegExp"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "skimmedTopicsInBlock": [
+            "Date and RegExp (a few methods each)"
+          ],
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Wed 18, Main column"
+        },
+        {
+          "id": "2026-11-18-second",
+          "blockName": "Second",
+          "blockLabel": "Second (1.5h)",
+          "subjectId": "ads",
+          "plannedMinutes": 90,
+          "topics": [
+            "AVL single and double rotations",
+            "splay trees"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Wed 18, Second column"
+        },
+        {
+          "id": "2026-11-18-it",
+          "blockName": "InformationTheory",
+          "blockLabel": "IT (1h)",
+          "subjectId": "it",
+          "plannedMinutes": 60,
+          "topics": [
+            "Mutual information"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Wed 18, IT column"
+        },
+        {
+          "id": "2026-11-18-rotation",
+          "blockName": "Rotation",
+          "blockLabel": "Rotation (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "discrete and continuous random variables",
+            "PMF and PDF"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Wed 18, Rotation column"
+        },
+        {
+          "id": "2026-11-18-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall + Buffer (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Draw all 4 AVL rotations",
+            "3 mutual information sums"
+          ],
+          "taskType": "recall",
+          "isHandwritten": true,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Wed 18, Recall+buffer column"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-19",
+      "dayLabel": "Thu 19 Nov",
+      "phase": 1,
+      "isLightDay": false,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "notes": "Standard block structure.",
+      "blocks": [
+        {
+          "id": "2026-11-19-main",
+          "blockName": "Main",
+          "blockLabel": "Main (2h)",
+          "subjectId": "fs",
+          "plannedMinutes": 120,
+          "topics": [
+            "DOM",
+            "event handling",
+            "JSON parsing"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Thu 19, Main column"
+        },
+        {
+          "id": "2026-11-19-second",
+          "blockName": "Second",
+          "blockLabel": "Second (1.5h)",
+          "subjectId": "ads",
+          "plannedMinutes": 90,
+          "topics": [
+            "B-trees",
+            "binary heap",
+            "priority queue applications",
+            "d-heaps"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "skimmedTopicsInBlock": [
+            "d-heaps (inside the binary heap session)"
+          ],
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Thu 19, Second column"
+        },
+        {
+          "id": "2026-11-19-it",
+          "blockName": "InformationTheory",
+          "blockLabel": "IT (1h)",
+          "subjectId": "it",
+          "plannedMinutes": 60,
+          "topics": [
+            "Channel capacity"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Thu 19, IT column"
+        },
+        {
+          "id": "2026-11-19-rotation",
+          "blockName": "Rotation",
+          "blockLabel": "Rotation (1h)",
+          "subjectId": "java",
+          "plannedMinutes": 60,
+          "topics": [
+            "constructors",
+            "this",
+            "overloading",
+            "objects as parameters",
+            "argument passing"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Thu 19, Rotation column"
+        },
+        {
+          "id": "2026-11-19-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall + Buffer (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "B-tree insert",
+            "heap insert and delete-min",
+            "3 capacity sums"
+          ],
+          "taskType": "recall",
+          "isHandwritten": true,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Thu 19, Recall+buffer column"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-20",
+      "dayLabel": "Fri 20 Nov",
+      "phase": 1,
+      "isLightDay": false,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "notes": "Standard block structure.",
+      "blocks": [
+        {
+          "id": "2026-11-20-main",
+          "blockName": "Main",
+          "blockLabel": "Main (2h)",
+          "subjectId": "fs",
+          "plannedMinutes": 120,
+          "topics": [
+            "Node introduction",
+            "architecture",
+            "HTTP server",
+            "request and response"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Fri 20, Main column"
+        },
+        {
+          "id": "2026-11-20-second",
+          "blockName": "Second",
+          "blockLabel": "Second (1.5h)",
+          "subjectId": "ads",
+          "plannedMinutes": 90,
+          "topics": [
+            "leftist heaps",
+            "skew heaps",
+            "binomial queues"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Fri 20, Second column"
+        },
+        {
+          "id": "2026-11-20-it",
+          "blockName": "InformationTheory",
+          "blockLabel": "IT (1h)",
+          "subjectId": "it",
+          "plannedMinutes": 60,
+          "topics": [
+            "Mixed numericals: entropy",
+            "mutual information",
+            "capacity"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Fri 20, IT column"
+        },
+        {
+          "id": "2026-11-20-rotation",
+          "blockName": "Rotation",
+          "blockLabel": "Rotation (1h)",
+          "subjectId": "co",
+          "plannedMinutes": 60,
+          "topics": [
+            "RISC vs CISC",
+            "signed add and subtract",
+            "carry-lookahead adder"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "skimmedTopicsInBlock": [
+            "CISC-style processors"
+          ],
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Fri 20, Rotation column"
+        },
+        {
+          "id": "2026-11-20-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall + Buffer (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Merge two heaps by hand",
+            "draw the adder from memory"
+          ],
+          "taskType": "recall",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Fri 20, Recall+buffer column"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "dayLabel": "Sat 21 Nov",
+      "phase": 1,
+      "isLightDay": false,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "notes": "Standard block structure.",
+      "blocks": [
+        {
+          "id": "2026-11-21-main",
+          "blockName": "Main",
+          "blockLabel": "Main (2h)",
+          "subjectId": "fs",
+          "plannedMinutes": 120,
+          "topics": [
+            "Node events",
+            "GET and POST",
+            "database connection"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Sat 21, Main column"
+        },
+        {
+          "id": "2026-11-21-second",
+          "blockName": "Second",
+          "blockLabel": "Second (1.5h)",
+          "subjectId": "ads",
+          "plannedMinutes": 90,
+          "topics": [
+            "insertion sort",
+            "Shell sort",
+            "merge sort",
+            "quick sort"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Sat 21, Second column"
+        },
+        {
+          "id": "2026-11-21-it",
+          "blockName": "InformationTheory",
+          "blockLabel": "IT (1h)",
+          "subjectId": "it",
+          "plannedMinutes": 60,
+          "topics": [
+            "Linear block codes",
+            "generator and parity-check matrices"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Sat 21, IT column"
+        },
+        {
+          "id": "2026-11-21-rotation",
+          "blockName": "Rotation",
+          "blockLabel": "Rotation (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "expectation",
+            "variance",
+            "moments",
+            "MGF"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Sat 21, Rotation column"
+        },
+        {
+          "id": "2026-11-21-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall + Buffer (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Sort traces",
+            "encode 3 messages with G",
+            "derive a mean from an MGF"
+          ],
+          "taskType": "recall",
+          "isHandwritten": true,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Sat 21, Recall+buffer column"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "dayLabel": "Sun 22 Nov",
+      "phase": 1,
+      "isLightDay": false,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "milestoneId": "m1",
+      "notes": "Milestone: Full Stack Units I to III and ADS Units I to II learned.",
+      "blocks": [
+        {
+          "id": "2026-11-22-main",
+          "blockName": "Main",
+          "blockLabel": "Main (2h)",
+          "subjectId": "fs",
+          "plannedMinutes": 120,
+          "topics": [
+            "NoSQL connection",
+            "CRUD",
+            "REST API"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Sun 22, Main column"
+        },
+        {
+          "id": "2026-11-22-second",
+          "blockName": "Second",
+          "blockLabel": "Second (1.5h)",
+          "subjectId": "ads",
+          "plannedMinutes": 90,
+          "topics": [
+            "hashing",
+            "chaining",
+            "open addressing",
+            "rehashing",
+            "extendible hashing"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Sun 22, Second column"
+        },
+        {
+          "id": "2026-11-22-it",
+          "blockName": "InformationTheory",
+          "blockLabel": "IT (1h)",
+          "subjectId": "it",
+          "plannedMinutes": 60,
+          "topics": [
+            "Syndrome and syndrome decoding"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Sun 22, IT column"
+        },
+        {
+          "id": "2026-11-22-rotation",
+          "blockName": "Rotation",
+          "blockLabel": "Rotation (1h)",
+          "subjectId": "java",
+          "plannedMinutes": 60,
+          "topics": [
+            "access control",
+            "static",
+            "recursion",
+            "garbage collection",
+            "nested classes",
+            "command-line arguments",
+            "variable-length arguments"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "skimmedTopicsInBlock": [
+            "command-line arguments",
+            "variable-length arguments"
+          ],
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Sun 22, Rotation column"
+        },
+        {
+          "id": "2026-11-22-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall + Buffer (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Fill a hash table by hand",
+            "3 syndrome problems",
+            "write one CRUD route by hand"
+          ],
+          "taskType": "recall",
+          "isHandwritten": true,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Sun 22, Recall+buffer column"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-23",
+      "dayLabel": "Mon 23 Nov",
+      "phase": 1,
+      "isLightDay": false,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "notes": "Standard block structure.",
+      "blocks": [
+        {
+          "id": "2026-11-23-main",
+          "blockName": "Main",
+          "blockLabel": "Main (2h)",
+          "subjectId": "fs",
+          "plannedMinutes": 120,
+          "topics": [
+            "React setup",
+            "elements",
+            "React DOM",
+            "components",
+            "JSX"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Mon 23, Main column"
+        },
+        {
+          "id": "2026-11-23-second",
+          "blockName": "Second",
+          "blockLabel": "Second (1.5h)",
+          "subjectId": "ads",
+          "plannedMinutes": 90,
+          "topics": [
+            "graphs",
+            "topological sort",
+            "unweighted paths",
+            "Dijkstra",
+            "negative edge costs"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Mon 23, Second column"
+        },
+        {
+          "id": "2026-11-23-it",
+          "blockName": "InformationTheory",
+          "blockLabel": "IT (1h)",
+          "subjectId": "it",
+          "plannedMinutes": 60,
+          "topics": [
+            "Minimum distance",
+            "detection and correction limits"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Mon 23, IT column"
+        },
+        {
+          "id": "2026-11-23-rotation",
+          "blockName": "Rotation",
+          "blockLabel": "Rotation (1h)",
+          "subjectId": "co",
+          "plannedMinutes": 60,
+          "topics": [
+            "unsigned and signed Booth multiplication",
+            "Booth",
+            "fast multiplication",
+            "division"
+          ],
+          "taskType": "study",
+          "isHandwritten": true,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Mon 23, Rotation column"
+        },
+        {
+          "id": "2026-11-23-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall + Buffer (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Dijkstra table",
+            "Booth on 2 examples"
+          ],
+          "taskType": "recall",
+          "isHandwritten": true,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Mon 23, Recall+buffer column"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "dayLabel": "Tue 24 Nov",
+      "phase": 1,
+      "isLightDay": false,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "milestoneId": "m2",
+      "notes": "Milestone: ADS fully learned; IT Units I and II started on cyclic codes. Second block split: ADS biconnectivity/Euler/strong (60 min) + mixed practice (30 min).",
+      "blocks": [
+        {
+          "id": "2026-11-24-main",
+          "blockName": "Main",
+          "blockLabel": "Main (2h)",
+          "subjectId": "fs",
+          "plannedMinutes": 120,
+          "topics": [
+            "state",
+            "props",
+            "component life cycle"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Tue 24, Main column"
+        },
+        {
+          "id": "2026-11-24-second-a",
+          "blockName": "Second",
+          "blockLabel": "Second — ADS graphs (1h)",
+          "subjectId": "ads",
+          "plannedMinutes": 60,
+          "topics": [
+            "biconnectivity",
+            "Euler circuits",
+            "strong components"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Tue 24, Second column (1h portion)"
+        },
+        {
+          "id": "2026-11-24-second-b",
+          "blockName": "Second",
+          "blockLabel": "Second — ADS mixed practice (0.5h)",
+          "subjectId": "ads",
+          "plannedMinutes": 30,
+          "topics": [
+            "mixed AVL practice",
+            "B-tree practice",
+            "hash practice"
+          ],
+          "taskType": "practice",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Tue 24, Second column (0.5h mixed practice)"
+        },
+        {
+          "id": "2026-11-24-it",
+          "blockName": "InformationTheory",
+          "blockLabel": "IT (1h)",
+          "subjectId": "it",
+          "plannedMinutes": 60,
+          "topics": [
+            "Cyclic codes",
+            "generator and parity-check polynomials"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Tue 24, IT column"
+        },
+        {
+          "id": "2026-11-24-rotation",
+          "blockName": "Rotation",
+          "blockLabel": "Rotation (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "binomial distribution",
+            "Poisson distribution"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Tue 24, Rotation column"
+        },
+        {
+          "id": "2026-11-24-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall + Buffer (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Write a stateful component by hand",
+            "3 cyclic division problems"
+          ],
+          "taskType": "recall",
+          "isHandwritten": true,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Tue 24, Recall+buffer column"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "dayLabel": "Wed 25 Nov",
+      "phase": 1,
+      "isLightDay": false,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "notes": "Second block split: Full Stack Router/refs/fragments (45 min) + ADS mixed practice (45 min). Both are Full Stack / ADS.",
+      "blocks": [
+        {
+          "id": "2026-11-25-main",
+          "blockName": "Main",
+          "blockLabel": "Main (2h)",
+          "subjectId": "fs",
+          "plannedMinutes": 120,
+          "topics": [
+            "controlled and uncontrolled forms",
+            "events",
+            "conditional rendering",
+            "lists and keys"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Wed 25, Main column"
+        },
+        {
+          "id": "2026-11-25-second-a",
+          "blockName": "Second",
+          "blockLabel": "Second — Full Stack Router (0.75h)",
+          "subjectId": "fs",
+          "plannedMinutes": 45,
+          "topics": [
+            "Router",
+            "refs",
+            "fragments",
+            "table"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Wed 25, Second column (0.75h Full Stack Router)"
+        },
+        {
+          "id": "2026-11-25-second-b",
+          "blockName": "Second",
+          "blockLabel": "Second — ADS mixed practice (0.75h)",
+          "subjectId": "ads",
+          "plannedMinutes": 45,
+          "topics": [
+            "ADS mixed practice"
+          ],
+          "taskType": "practice",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Wed 25, Second column (0.75h ADS mixed practice)"
+        },
+        {
+          "id": "2026-11-25-it",
+          "blockName": "InformationTheory",
+          "blockLabel": "IT (1h)",
+          "subjectId": "it",
+          "plannedMinutes": 60,
+          "topics": [
+            "Cyclic encoder and syndrome calculation"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Wed 25, IT column"
+        },
+        {
+          "id": "2026-11-25-rotation",
+          "blockName": "Rotation",
+          "blockLabel": "Rotation (1h)",
+          "subjectId": "java",
+          "plannedMinutes": 60,
+          "topics": [
+            "inheritance",
+            "super",
+            "multilevel hierarchy",
+            "overriding",
+            "dynamic dispatch"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Wed 25, Rotation column"
+        },
+        {
+          "id": "2026-11-25-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall + Buffer (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Write a controlled form from memory",
+            "one overriding program on paper"
+          ],
+          "taskType": "recall",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Wed 25, Recall+buffer column"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "dayLabel": "Thu 26 Nov",
+      "phase": 1,
+      "isLightDay": true,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "milestoneId": "m3",
+      "notes": "LIGHT DAY. Exam-eve before Full Stack (27 Nov). Stop early. No first exposure to a large unit. IT is 1.5h (takes part of Rotation). Rotation (Java) reduced to 0.5h. Recall reduced to 0.5h. Milestone: Full Stack fully learned, mock and sheet done.",
+      "blocks": [
+        {
+          "id": "2026-11-26-main",
+          "blockName": "Main",
+          "blockLabel": "Main (2h)",
+          "subjectId": "fs",
+          "plannedMinutes": 120,
+          "topics": [
+            "Hooks: useState",
+            "useEffect",
+            "useContext",
+            "handwritten examples"
+          ],
+          "taskType": "handwritten",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Thu 26, Main column"
+        },
+        {
+          "id": "2026-11-26-second",
+          "blockName": "Second",
+          "blockLabel": "Second — Full Stack mock + ADS weak-topic (1.5h)",
+          "subjectId": "fs",
+          "plannedMinutes": 90,
+          "topics": [
+            "Full Stack mock questions",
+            "Full Stack one-page formula sheet",
+            "ADS weak-topic pass"
+          ],
+          "taskType": "mock",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Thu 26, Second column (Full Stack mock 1h + ADS weak 0.5h)",
+          "subBlocks": [
+            {
+              "subjectId": "fs",
+              "minutes": 60,
+              "description": "Full Stack mock questions and one-page sheet"
+            },
+            {
+              "subjectId": "ads",
+              "minutes": 30,
+              "description": "ADS weak-topic pass"
+            }
+          ]
+        },
+        {
+          "id": "2026-11-26-it",
+          "blockName": "InformationTheory",
+          "blockLabel": "IT (1.5h — takes part of Rotation slot)",
+          "subjectId": "it",
+          "plannedMinutes": 90,
+          "topics": [
+            "Static Huffman coding",
+            "arithmetic coding",
+            "LZW compression"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Thu 26, IT column (1.5h, takes part of Rotation slot)"
+        },
+        {
+          "id": "2026-11-26-rotation",
+          "blockName": "Rotation",
+          "blockLabel": "Rotation — Java (0.5h, reduced due to IT overflow)",
+          "subjectId": "java",
+          "plannedMinutes": 30,
+          "topics": [
+            "abstract classes",
+            "final"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Thu 26, Rotation column (0.5h Java abstract classes, final)"
+        },
+        {
+          "id": "2026-11-26-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall (0.5h only — light day)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Light recall only",
+            "stop early and sleep"
+          ],
+          "taskType": "recall",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 1 table, Thu 26, Recall+buffer column (light recall 0.5h only)"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-27",
+      "dayLabel": "Fri 27 Nov",
+      "phase": 2,
+      "isLightDay": false,
+      "isExamDay": true,
+      "examSubjectId": "fs",
+      "maxStudyMinutes": 210,
+      "totalPlannedMinutes": 210,
+      "notes": "Full Stack exam (morning). Afternoon study only: max 3.5h (210 min).",
+      "blocks": [
+        {
+          "id": "2026-11-27-exam",
+          "blockName": "Exam",
+          "blockLabel": "Full Stack Exam (morning)",
+          "subjectId": "fs",
+          "plannedMinutes": 0,
+          "topics": [
+            "Full Stack Development Examination"
+          ],
+          "taskType": "exam",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2 table, Fri 27 Nov"
+        },
+        {
+          "id": "2026-11-27-afternoon-ads",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — ADS handwritten traces (1.5h)",
+          "subjectId": "ads",
+          "plannedMinutes": 90,
+          "topics": [
+            "ADS handwritten traces for trees",
+            "hashing",
+            "sorting"
+          ],
+          "taskType": "handwritten",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Fri 27 Nov, Afternoon (1.5h ADS)"
+        },
+        {
+          "id": "2026-11-27-afternoon-it",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — IT numericals (0.5h)",
+          "subjectId": "it",
+          "plannedMinutes": 30,
+          "topics": [
+            "IT Huffman numericals",
+            "arithmetic coding numericals",
+            "LZW numericals"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Fri 27 Nov, Afternoon (0.5h IT)"
+        },
+        {
+          "id": "2026-11-27-afternoon-co",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — CO study (1.5h)",
+          "subjectId": "co",
+          "plannedMinutes": 90,
+          "topics": [
+            "RAM and ROM",
+            "memory hierarchy",
+            "floating point",
+            "IEEE 754"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Fri 27 Nov, Afternoon (1.5h CO)"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "dayLabel": "Sat 28 Nov",
+      "phase": 2,
+      "isLightDay": false,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "notes": "Full day. 6.5h ceiling.",
+      "blocks": [
+        {
+          "id": "2026-11-28-ads",
+          "blockName": "Main",
+          "blockLabel": "ADS timed mixed problems (2h)",
+          "subjectId": "ads",
+          "plannedMinutes": 120,
+          "topics": [
+            "ADS timed mixed problems"
+          ],
+          "taskType": "mock",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sat 28 Nov"
+        },
+        {
+          "id": "2026-11-28-it",
+          "blockName": "Second",
+          "blockLabel": "IT — convolutional codes etc (1.5h)",
+          "subjectId": "it",
+          "plannedMinutes": 90,
+          "topics": [
+            "convolutional codes",
+            "code tree",
+            "trellis and state diagram",
+            "compression principles",
+            "dynamic Huffman"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sat 28 Nov"
+        },
+        {
+          "id": "2026-11-28-co",
+          "blockName": "Rotation",
+          "blockLabel": "CO — cache mapping numericals (1h)",
+          "subjectId": "co",
+          "plannedMinutes": 60,
+          "topics": [
+            "cache mapping and performance numericals"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": true,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sat 28 Nov"
+        },
+        {
+          "id": "2026-11-28-prob",
+          "blockName": "Rotation",
+          "blockLabel": "Probability — geometric, uniform, exponential (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "geometric distribution",
+            "uniform distribution",
+            "exponential distribution"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 3,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sat 28 Nov"
+        },
+        {
+          "id": "2026-11-28-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall + Buffer (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Recall and buffer"
+          ],
+          "taskType": "recall",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sat 28 Nov"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-29",
+      "dayLabel": "Sun 29 Nov",
+      "phase": 2,
+      "isLightDay": true,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "milestoneId": "m4",
+      "notes": "LIGHT DAY. Exam-eve before ADS (30 Nov). Finish early and sleep. Milestone: ADS revised twice; IT Units I to IV learned; CO Units I, II and IV, and most of V, learned.",
+      "blocks": [
+        {
+          "id": "2026-11-29-ads",
+          "blockName": "Main",
+          "blockLabel": "ADS final pass + one-page sheet (1.5h)",
+          "subjectId": "ads",
+          "plannedMinutes": 90,
+          "topics": [
+            "ADS final pass on graphs",
+            "heaps",
+            "AVL",
+            "B-trees",
+            "ADS one-page formula sheet"
+          ],
+          "taskType": "formulasheet",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sun 29 Nov"
+        },
+        {
+          "id": "2026-11-29-it",
+          "blockName": "Second",
+          "blockLabel": "IT — multimedia compression (2h)",
+          "subjectId": "it",
+          "plannedMinutes": 120,
+          "topics": [
+            "GIF",
+            "TIFF",
+            "digitized documents and pictures",
+            "JPEG",
+            "DPCM",
+            "ADPCM",
+            "LPC",
+            "CELP",
+            "perceptual coding",
+            "MPEG audio"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "skimmedTopicsInBlock": [
+            "digitized documents and pictures",
+            "GIF and TIFF (memorise features)",
+            "implementation issues in video compression"
+          ],
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sun 29 Nov"
+        },
+        {
+          "id": "2026-11-29-co",
+          "blockName": "Rotation",
+          "blockLabel": "CO — DMA, virtual memory, secondary storage (1h)",
+          "subjectId": "co",
+          "plannedMinutes": 60,
+          "topics": [
+            "DMA",
+            "virtual memory",
+            "secondary storage"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "skimmedTopicsInBlock": [
+            "secondary storage"
+          ],
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sun 29 Nov"
+        },
+        {
+          "id": "2026-11-29-java",
+          "blockName": "Rotation",
+          "blockLabel": "Java — interfaces and packages (1h)",
+          "subjectId": "java",
+          "plannedMinutes": 60,
+          "topics": [
+            "interfaces",
+            "packages"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sun 29 Nov"
+        },
+        {
+          "id": "2026-11-29-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Recall",
+            "finish early and sleep"
+          ],
+          "taskType": "recall",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sun 29 Nov"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-30",
+      "dayLabel": "Mon 30 Nov",
+      "phase": 2,
+      "isLightDay": false,
+      "isExamDay": true,
+      "examSubjectId": "ads",
+      "maxStudyMinutes": 210,
+      "totalPlannedMinutes": 210,
+      "notes": "ADS exam (morning). Afternoon study only: max 3.5h (210 min).",
+      "blocks": [
+        {
+          "id": "2026-11-30-exam",
+          "blockName": "Exam",
+          "blockLabel": "ADS Exam (morning)",
+          "subjectId": "ads",
+          "plannedMinutes": 0,
+          "topics": [
+            "Advanced Data Structures Examination"
+          ],
+          "taskType": "exam",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Mon 30 Nov"
+        },
+        {
+          "id": "2026-11-30-afternoon-it",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — IT video coding (1.5h)",
+          "subjectId": "it",
+          "plannedMinutes": 90,
+          "topics": [
+            "IT frame types",
+            "motion estimation",
+            "H.261",
+            "H.263",
+            "MPEG-1",
+            "MPEG-2",
+            "MPEG-4 table"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Mon 30 Nov, Afternoon (1.5h IT)"
+        },
+        {
+          "id": "2026-11-30-afternoon-co",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — CO interrupts (1h)",
+          "subjectId": "co",
+          "plannedMinutes": 60,
+          "topics": [
+            "interrupts",
+            "handling multiple devices"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Mon 30 Nov, Afternoon (1h CO)"
+        },
+        {
+          "id": "2026-11-30-afternoon-prob",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — Probability normal distribution (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "normal distribution",
+            "Z-table"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 3,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Mon 30 Nov, Afternoon (1h Probability)"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-01",
+      "dayLabel": "Tue 1 Dec",
+      "phase": 2,
+      "isLightDay": true,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "milestoneId": "m5",
+      "notes": "LIGHT DAY. Exam-eve before IT (2 Dec). Stop early. Milestone: IT every numerical type solved at least once; CO Unit III learned.",
+      "blocks": [
+        {
+          "id": "2026-12-01-it",
+          "blockName": "Main",
+          "blockLabel": "IT — full mixed numericals + formula sheet (2h)",
+          "subjectId": "it",
+          "plannedMinutes": 120,
+          "topics": [
+            "IT full mixed numericals for Units I to III",
+            "IT formula sheet"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Tue 1 Dec"
+        },
+        {
+          "id": "2026-12-01-co",
+          "blockName": "Second",
+          "blockLabel": "CO — instruction fetch, control, pipelining (1.5h)",
+          "subjectId": "co",
+          "plannedMinutes": 90,
+          "topics": [
+            "instruction fetch and execution steps",
+            "control signals",
+            "hardwired control",
+            "pipelining basics"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Tue 1 Dec"
+        },
+        {
+          "id": "2026-12-01-java",
+          "blockName": "Rotation",
+          "blockLabel": "Java — exceptions (1h)",
+          "subjectId": "java",
+          "plannedMinutes": 60,
+          "topics": [
+            "exceptions: built-in",
+            "multiple catch",
+            "user-defined exceptions"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Tue 1 Dec"
+        },
+        {
+          "id": "2026-12-01-prob",
+          "blockName": "Rotation",
+          "blockLabel": "Probability — joint, covariance, regression (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "joint distribution",
+            "marginal distribution",
+            "covariance",
+            "correlation",
+            "regression"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 3,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Tue 1 Dec"
+        },
+        {
+          "id": "2026-12-01-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Recall"
+          ],
+          "taskType": "recall",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Tue 1 Dec"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-02",
+      "dayLabel": "Wed 2 Dec",
+      "phase": 2,
+      "isLightDay": false,
+      "isExamDay": true,
+      "examSubjectId": "it",
+      "maxStudyMinutes": 210,
+      "totalPlannedMinutes": 210,
+      "notes": "Information Theory exam (morning). Afternoon study only: max 3.5h (210 min).",
+      "blocks": [
+        {
+          "id": "2026-12-02-exam",
+          "blockName": "Exam",
+          "blockLabel": "Information Theory Exam (morning)",
+          "subjectId": "it",
+          "plannedMinutes": 0,
+          "topics": [
+            "Information Theory and Coding Examination"
+          ],
+          "taskType": "exam",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Wed 2 Dec"
+        },
+        {
+          "id": "2026-12-02-afternoon-co-pipeline",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — CO pipeline hazards (1h)",
+          "subjectId": "co",
+          "plannedMinutes": 60,
+          "topics": [
+            "pipeline hazards and timing diagrams"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Wed 2 Dec, Afternoon (1h CO pipeline)"
+        },
+        {
+          "id": "2026-12-02-afternoon-co-handwritten",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — CO Booth + IEEE 754 handwritten (0.75h)",
+          "subjectId": "co",
+          "plannedMinutes": 45,
+          "topics": [
+            "CO Booth handwritten practice",
+            "IEEE 754 handwritten practice"
+          ],
+          "taskType": "handwritten",
+          "isHandwritten": true,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Wed 2 Dec, Afternoon (0.75h CO handwritten)"
+        },
+        {
+          "id": "2026-12-02-afternoon-java",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — Java threads and synchronization (0.75h)",
+          "subjectId": "java",
+          "plannedMinutes": 45,
+          "topics": [
+            "threads and synchronization"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Wed 2 Dec, Afternoon (0.75h Java)"
+        },
+        {
+          "id": "2026-12-02-afternoon-prob",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — Probability hypothesis testing (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "hypothesis steps",
+            "critical region",
+            "types of errors",
+            "Z-test"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 3,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Wed 2 Dec, Afternoon (1h Probability)"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-03",
+      "dayLabel": "Thu 3 Dec",
+      "phase": 2,
+      "isLightDay": true,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "milestoneId": "m6",
+      "notes": "LIGHT DAY. Exam-eve before CO (4 Dec). No new CO unit today. Milestone: CO numericals and diagrams practised, with no new unit.",
+      "blocks": [
+        {
+          "id": "2026-12-03-co-numericals",
+          "blockName": "Main",
+          "blockLabel": "CO numericals: cache, pipeline, Booth, IEEE 754, performance (2.5h)",
+          "subjectId": "co",
+          "plannedMinutes": 150,
+          "topics": [
+            "CO numericals: cache",
+            "pipeline numericals",
+            "Booth numericals",
+            "IEEE 754 numericals",
+            "performance numericals"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": true,
+          "isNumerical": true,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Thu 3 Dec"
+        },
+        {
+          "id": "2026-12-03-co-diagrams",
+          "blockName": "Second",
+          "blockLabel": "CO — redraw diagrams + one-page sheet (1h)",
+          "subjectId": "co",
+          "plannedMinutes": 60,
+          "topics": [
+            "redraw every CO diagram from memory",
+            "finish CO one-page formula sheet"
+          ],
+          "taskType": "handwritten",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Thu 3 Dec"
+        },
+        {
+          "id": "2026-12-03-java",
+          "blockName": "Rotation",
+          "blockLabel": "Java — thread and synchronization programs by hand (1h)",
+          "subjectId": "java",
+          "plannedMinutes": 60,
+          "topics": [
+            "thread programs by hand",
+            "synchronization programs by hand"
+          ],
+          "taskType": "handwritten",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Thu 3 Dec"
+        },
+        {
+          "id": "2026-12-03-prob",
+          "blockName": "Rotation",
+          "blockLabel": "Probability — t-test, F-test, chi-square (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "t-test",
+            "F-test",
+            "chi-square"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 3,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Thu 3 Dec"
+        },
+        {
+          "id": "2026-12-03-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall + Buffer (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Recall and buffer"
+          ],
+          "taskType": "recall",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Thu 3 Dec"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-04",
+      "dayLabel": "Fri 4 Dec",
+      "phase": 2,
+      "isLightDay": false,
+      "isExamDay": true,
+      "examSubjectId": "co",
+      "maxStudyMinutes": 210,
+      "totalPlannedMinutes": 210,
+      "notes": "Computer Organization exam (morning). Afternoon study only: max 3.5h (210 min).",
+      "blocks": [
+        {
+          "id": "2026-12-04-exam",
+          "blockName": "Exam",
+          "blockLabel": "CO Exam (morning)",
+          "subjectId": "co",
+          "plannedMinutes": 0,
+          "topics": [
+            "Computer Organization Examination"
+          ],
+          "taskType": "exam",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Fri 4 Dec"
+        },
+        {
+          "id": "2026-12-04-afternoon-java-a",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — Java inheritance programs by hand (1.5h)",
+          "subjectId": "java",
+          "plannedMinutes": 90,
+          "topics": [
+            "inheritance programs by hand",
+            "overriding programs by hand",
+            "abstract class programs by hand",
+            "interface programs by hand"
+          ],
+          "taskType": "handwritten",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Fri 4 Dec, Afternoon (1.5h Java)"
+        },
+        {
+          "id": "2026-12-04-afternoon-java-b",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — Java exception and thread programs by hand (1h)",
+          "subjectId": "java",
+          "plannedMinutes": 60,
+          "topics": [
+            "exception programs by hand",
+            "thread programs by hand"
+          ],
+          "taskType": "handwritten",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Fri 4 Dec, Afternoon (1h Java exception/thread)"
+        },
+        {
+          "id": "2026-12-04-afternoon-prob",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — Probability ANOVA, CRD (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "ANOVA",
+            "completely randomized design"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 3,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Fri 4 Dec, Afternoon (1h Probability)"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-05",
+      "dayLabel": "Sat 5 Dec",
+      "phase": 2,
+      "isLightDay": false,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "milestoneId": "m7",
+      "notes": "Full day. Milestone: Java Units I to V learned.",
+      "blocks": [
+        {
+          "id": "2026-12-05-java-study",
+          "blockName": "Main",
+          "blockLabel": "Java — file I/O, Strings, generics, collections (2h)",
+          "subjectId": "java",
+          "plannedMinutes": 120,
+          "topics": [
+            "file I/O",
+            "Strings and StringBuffer",
+            "generics",
+            "collections"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sat 5 Dec"
+        },
+        {
+          "id": "2026-12-05-java-handwritten",
+          "blockName": "Second",
+          "blockLabel": "Java — 6 programs by hand (1.5h)",
+          "subjectId": "java",
+          "plannedMinutes": 90,
+          "topics": [
+            "6 Java programs written by hand"
+          ],
+          "taskType": "handwritten",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sat 5 Dec"
+        },
+        {
+          "id": "2026-12-05-prob-designs",
+          "blockName": "Rotation",
+          "blockLabel": "Probability — randomized block + Latin square (1.5h)",
+          "subjectId": "prob",
+          "plannedMinutes": 90,
+          "topics": [
+            "randomized block design",
+            "Latin square design"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sat 5 Dec"
+        },
+        {
+          "id": "2026-12-05-prob-numericals",
+          "blockName": "Rotation",
+          "blockLabel": "Probability — mixed distribution numericals (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "mixed distribution numericals"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sat 5 Dec"
+        },
+        {
+          "id": "2026-12-05-buffer",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Buffer (0.5h)",
+          "subjectId": null,
+          "plannedMinutes": 30,
+          "topics": [
+            "buffer"
+          ],
+          "taskType": "buffer",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 3,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sat 5 Dec"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-06",
+      "dayLabel": "Sun 6 Dec",
+      "phase": 2,
+      "isLightDay": true,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "notes": "LIGHT DAY. Exam-eve before Java (7 Dec). Finish early.",
+      "blocks": [
+        {
+          "id": "2026-12-06-java-mock",
+          "blockName": "Main",
+          "blockLabel": "Java — handwritten timed mock + corrections (2h)",
+          "subjectId": "java",
+          "plannedMinutes": 120,
+          "topics": [
+            "Java handwritten timed mock",
+            "corrections"
+          ],
+          "taskType": "mock",
+          "isHandwritten": true,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sun 6 Dec"
+        },
+        {
+          "id": "2026-12-06-java-tracing",
+          "blockName": "Second",
+          "blockLabel": "Java — output tracing, strings, collections (1h)",
+          "subjectId": "java",
+          "plannedMinutes": 60,
+          "topics": [
+            "Java output tracing",
+            "strings",
+            "collections"
+          ],
+          "taskType": "practice",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sun 6 Dec"
+        },
+        {
+          "id": "2026-12-06-prob-tests",
+          "blockName": "Rotation",
+          "blockLabel": "Probability — Z, t, F, chi-square mixed tests (1.5h)",
+          "subjectId": "prob",
+          "plannedMinutes": 90,
+          "topics": [
+            "Z-test mixed",
+            "t-test mixed",
+            "F-test mixed",
+            "chi-square mixed"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sun 6 Dec"
+        },
+        {
+          "id": "2026-12-06-prob-recall",
+          "blockName": "Rotation",
+          "blockLabel": "Probability — correlation, regression, MGF (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "correlation",
+            "regression",
+            "MGF"
+          ],
+          "taskType": "study",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 2,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sun 6 Dec"
+        },
+        {
+          "id": "2026-12-06-recall",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Recall (1h)",
+          "subjectId": null,
+          "plannedMinutes": 60,
+          "topics": [
+            "Recall",
+            "finish early"
+          ],
+          "taskType": "recall",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": true,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Sun 6 Dec"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-07",
+      "dayLabel": "Mon 7 Dec",
+      "phase": 2,
+      "isLightDay": false,
+      "isExamDay": true,
+      "examSubjectId": "java",
+      "maxStudyMinutes": 210,
+      "totalPlannedMinutes": 210,
+      "notes": "Java exam (morning). Afternoon study only: max 3.5h (210 min).",
+      "blocks": [
+        {
+          "id": "2026-12-07-exam",
+          "blockName": "Exam",
+          "blockLabel": "Java Exam (morning)",
+          "subjectId": "java",
+          "plannedMinutes": 0,
+          "topics": [
+            "Java Examination"
+          ],
+          "taskType": "exam",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Mon 7 Dec"
+        },
+        {
+          "id": "2026-12-07-afternoon-prob-anova",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — Probability ANOVA all three designs (1.5h)",
+          "subjectId": "prob",
+          "plannedMinutes": 90,
+          "topics": [
+            "ANOVA for all three designs"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Mon 7 Dec, Afternoon (1.5h Probability ANOVA)"
+        },
+        {
+          "id": "2026-12-07-afternoon-prob-mixed",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — Probability test selection + mixed numericals (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "test selection",
+            "mixed numerical set"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Mon 7 Dec, Afternoon (1h Probability mixed)"
+        },
+        {
+          "id": "2026-12-07-afternoon-prob-sheet",
+          "blockName": "Afternoon",
+          "blockLabel": "Afternoon — Probability formula sheet (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "formula sheet"
+          ],
+          "taskType": "formulasheet",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Mon 7 Dec, Afternoon (1h formula sheet)"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-08",
+      "dayLabel": "Tue 8 Dec",
+      "phase": 2,
+      "isLightDay": false,
+      "isExamDay": false,
+      "examSubjectId": null,
+      "maxStudyMinutes": 390,
+      "totalPlannedMinutes": 390,
+      "milestoneId": "m8",
+      "notes": "Full day. Milestone: Probability Units I to V learned; formula sheet done.",
+      "blocks": [
+        {
+          "id": "2026-12-08-prob-mock",
+          "blockName": "Main",
+          "blockLabel": "Probability — full timed mock (2h)",
+          "subjectId": "prob",
+          "plannedMinutes": 120,
+          "topics": [
+            "Probability full timed mock"
+          ],
+          "taskType": "mock",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Tue 8 Dec"
+        },
+        {
+          "id": "2026-12-08-prob-corrections",
+          "blockName": "Second",
+          "blockLabel": "Probability — correct errors + redo weak tests (1.5h)",
+          "subjectId": "prob",
+          "plannedMinutes": 90,
+          "topics": [
+            "correct errors from mock",
+            "redo weak tests"
+          ],
+          "taskType": "practice",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Tue 8 Dec"
+        },
+        {
+          "id": "2026-12-08-prob-recall",
+          "blockName": "Rotation",
+          "blockLabel": "Probability — distributions, MGF, regression recall (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "distributions recall",
+            "MGF recall",
+            "regression recall"
+          ],
+          "taskType": "recall",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Tue 8 Dec"
+        },
+        {
+          "id": "2026-12-08-prob-anova-tables",
+          "blockName": "Rotation",
+          "blockLabel": "Probability — ANOVA tables (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "ANOVA tables"
+          ],
+          "taskType": "numericals",
+          "isHandwritten": false,
+          "isNumerical": true,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Tue 8 Dec"
+        },
+        {
+          "id": "2026-12-08-prob-sheet",
+          "blockName": "RecallBuffer",
+          "blockLabel": "Probability — final formula sheet + closed-book recall (1h)",
+          "subjectId": "prob",
+          "plannedMinutes": 60,
+          "topics": [
+            "final formula sheet",
+            "closed-book recall"
+          ],
+          "taskType": "formulasheet",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": false,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Tue 8 Dec"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-09",
+      "dayLabel": "Wed 9 Dec",
+      "phase": 2,
+      "isLightDay": false,
+      "isExamDay": true,
+      "examSubjectId": "prob",
+      "maxStudyMinutes": 30,
+      "totalPlannedMinutes": 30,
+      "notes": "Probability and Statistics exam (morning). Read the formula sheet in the morning only. No afternoon study sessions planned.",
+      "blocks": [
+        {
+          "id": "2026-12-09-morning-formula",
+          "blockName": "MorningFormulaRead",
+          "blockLabel": "Morning — read formula sheet only",
+          "subjectId": "prob",
+          "plannedMinutes": 30,
+          "topics": [
+            "Read the Probability and Statistics formula sheet"
+          ],
+          "taskType": "formulasheet",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Wed 9 Dec — Read the formula sheet in the morning only."
+        },
+        {
+          "id": "2026-12-09-exam",
+          "blockName": "Exam",
+          "blockLabel": "Probability and Statistics Exam (morning)",
+          "subjectId": "prob",
+          "plannedMinutes": 0,
+          "topics": [
+            "Probability and Statistics Examination"
+          ],
+          "taskType": "exam",
+          "isHandwritten": false,
+          "isNumerical": false,
+          "isLightDay": false,
+          "isExamDay": true,
+          "priority": 1,
+          "isSkimmed": false,
+          "completionStatus": "not_started",
+          "sourceReference": "Phase 2, Wed 9 Dec"
+        }
+      ]
+    }
+  ]
+}
