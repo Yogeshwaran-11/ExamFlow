@@ -1,6 +1,8 @@
 import React from 'react'
 import { StudyBlock, TaskCompletion } from '@/models'
 import { Clock, CheckCircle2, ChevronRight, PenTool, Hash, Moon, Award } from 'lucide-react'
+import { getTopicWeightage } from '@/data/examWeightage'
+import { ExamWeightageBadge } from '@/components/common/ExamWeightageBadge'
 
 interface DayViewProps {
   daySchedule: any
@@ -127,15 +129,24 @@ export const DayView: React.FC<DayViewProps> = ({
                     </div>
 
                     {/* Topics */}
-                    <div className="flex flex-wrap gap-1.5 mt-2">
-                      {block.topics?.map((topic: string, i: number) => (
-                        <span
-                          key={i}
-                          className="px-2 py-0.5 text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md"
-                        >
-                          {topic}
-                        </span>
-                      ))}
+                    <div className="flex flex-wrap items-center gap-1.5 mt-2">
+                      {block.topics?.map((topic: string, i: number) => {
+                        const weightage = getTopicWeightage(block.subjectId, topic)
+                        return (
+                          <span
+                            key={i}
+                            className={`inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded-md ${
+                              weightage?.weightage === '16M'
+                                ? 'bg-amber-100 text-amber-900 border border-amber-300 dark:bg-amber-950/70 dark:text-amber-200 dark:border-amber-800 font-medium'
+                                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300'
+                            }`}
+                          >
+                            {weightage?.weightage === '16M' && <span className="text-[10px]">⭐</span>}
+                            <span>{topic}</span>
+                            {weightage && <ExamWeightageBadge weightage={weightage} compact />}
+                          </span>
+                        )
+                      })}
                     </div>
                   </div>
                 </div>

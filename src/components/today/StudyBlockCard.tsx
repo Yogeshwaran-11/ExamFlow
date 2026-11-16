@@ -19,6 +19,8 @@ import {
 import type { Subject, TaskCompletion } from '@/models'
 import type { DailyScheduleBlock } from '@/hooks/useTodaySchedule'
 import { minutesToHoursLabel } from '@/lib/date-utils'
+import { getTopicWeightage } from '@/data/examWeightage'
+import { ExamWeightageBadge } from '@/components/common/ExamWeightageBadge'
 
 interface StudyBlockCardProps {
   block: DailyScheduleBlock
@@ -143,6 +145,11 @@ export function StudyBlockCard({
   const visibleTopics = expanded ? topics : topics.slice(0, 2)
   const remainingCount = topics.length - 2
 
+  const has16MTopic = topics.some((t) => {
+    const w = getTopicWeightage(block.subjectId, t)
+    return w?.weightage === '16M'
+  })
+
   const subjectColor = subject?.color || '#0ea5e9'
   const subjectName = subject?.name || subject?.shortName || block.subjectId || 'General'
 
@@ -209,6 +216,15 @@ export function StudyBlockCard({
               ⚡ Skimmed
             </span>
           )}
+          {has16MTopic && (
+            <span
+              title="Contains high-weightage 16-mark semester exam questions"
+              className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-500/15 to-yellow-500/20 text-amber-900 dark:text-amber-200 border border-amber-300 dark:border-amber-700/60 flex items-center gap-1 shadow-xs"
+            >
+              <Award className="w-3 h-3 text-amber-600 dark:text-amber-400 fill-amber-500/20" />
+              <span>⭐ 16M Target</span>
+            </span>
+          )}
         </div>
 
         {/* Duration badge */}
@@ -247,12 +263,19 @@ export function StudyBlockCard({
         {/* Topics list */}
         {topics.length > 0 && (
           <div className="mt-2 text-xs text-gray-600 dark:text-gray-300 space-y-1">
-            <ul className="list-disc list-inside space-y-0.5 text-gray-600 dark:text-gray-300">
-              {visibleTopics.map((top, idx) => (
-                <li key={idx} className="leading-relaxed">
-                  <span>{top}</span>
-                </li>
-              ))}
+            <ul className="space-y-1 text-gray-600 dark:text-gray-300">
+              {visibleTopics.map((top, idx) => {
+                const weightage = getTopicWeightage(block.subjectId, top)
+                return (
+                  <li key={idx} className="leading-relaxed flex items-center justify-between gap-2 py-0.5">
+                    <span className="flex items-center gap-1.5 truncate">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-500 shrink-0" />
+                      <span className="truncate">{top}</span>
+                    </span>
+                    {weightage && <ExamWeightageBadge weightage={weightage} compact />}
+                  </li>
+                )
+              })}
             </ul>
 
             {remainingCount > 0 && !expanded && (
