@@ -27,61 +27,25 @@ export default function PlanPage() {
   const [subjectFilter, setSubjectFilter] = useState<string>('all')
   const [taskTypeFilter, setTaskTypeFilter] = useState<string>('all')
 
-  // Load task completions from localStorage + merge with Zustand store
-  const storeCompletions = useStudyPlanStore((s) => s.taskCompletions)
+  // Zustand store for task completions and real-time syncing
+  const taskCompletions = useStudyPlanStore((s) => s.taskCompletions)
+  const markBlockComplete = useStudyPlanStore((s) => s.markBlockComplete)
+  const resetBlock = useStudyPlanStore((s) => s.resetBlock)
 
-  const [localCompletions, setLocalCompletions] = useState<Record<string, TaskCompletion>>(() => {
-    try {
-      const raw = localStorage.getItem('examflow_completions')
-      if (raw) {
-        const list: TaskCompletion[] = JSON.parse(raw)
-        const map: Record<string, TaskCompletion> = {}
-        list.forEach((item) => {
-          map[item.blockId] = item
-        })
-        return map
-      }
-    } catch {}
-    return {}
-  })
+  // Direct alias for sub-views
+  const completions = taskCompletions
 
-  // Merged: Zustand store takes priority (it has canonical status values)
-  const completions = useMemo<Record<string, TaskCompletion>>(() => {
-    const merged: Record<string, TaskCompletion> = { ...localCompletions }
-    if (storeCompletions instanceof Map) {
-      storeCompletions.forEach((val, key) => { merged[key] = val })
-    } else if (storeCompletions && typeof storeCompletions === 'object') {
-      Object.assign(merged, storeCompletions)
+  // Toggle completion (updates Zustand store + localStorage + cloud)
+  const handleToggleComplete = async (blockId: string) => {
+    const existing = taskCompletions[blockId]
+    const isComplete =
+      existing?.status === 'complete' ||
+      existing?.status === 'completed'
+    if (isComplete) {
+      await resetBlock(blockId)
+    } else {
+      await markBlockComplete(blockId, 60, '')
     }
-    return merged
-  }, [localCompletions, storeCompletions])
-
-  // Toggle completion (writes to localStorage + local state)
-  const handleToggleComplete = (blockId: string) => {
-    setLocalCompletions((prev) => {
-      const existing = prev[blockId]
-      const isComplete =
-        existing?.status === 'complete' ||
-        existing?.status === 'completed'
-      const updatedItem: TaskCompletion = {
-        id: blockId,
-        blockId,
-        userId: 'default_user',
-        date: selectedDate,
-        status: isComplete ? 'not_started' : 'completed',
-        actualMinutes: isComplete ? 0 : 60,
-        syncStatus: 'local',
-        createdAt: existing?.createdAt || new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      }
-      const next = { ...prev, [blockId]: updatedItem }
-      try {
-        localStorage.setItem('examflow_completions', JSON.stringify(Array.from(Object.values(next))))
-      } catch (e) {
-        console.error(e)
-      }
-      return next
-    })
   }
 
   // Subjects lookup map

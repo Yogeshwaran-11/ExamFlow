@@ -58,21 +58,21 @@ export function useFirestoreSync() {
         (snap) => {
           if (snap.metadata.hasPendingWrites) return // skip local uncommitted echo
           const state = useStudyPlanStore.getState()
-          const nextMap = new Map(state.taskCompletions)
+          const nextRecord = { ...state.taskCompletions }
           snap.docChanges().forEach((change) => {
             const data = change.doc.data() as TaskCompletion
             if (change.type === 'removed') {
-              nextMap.delete(change.doc.id)
+              delete nextRecord[change.doc.id]
             } else {
-              nextMap.set(change.doc.id, {
+              nextRecord[change.doc.id] = {
                 ...data,
                 id: change.doc.id,
                 blockId: data.blockId || change.doc.id,
                 syncStatus: 'synced',
-              })
+              }
             }
           })
-          useStudyPlanStore.setState({ taskCompletions: nextMap })
+          useStudyPlanStore.setState({ taskCompletions: nextRecord })
         },
         (err) => console.error('Firestore completions snapshot error:', err)
       )
@@ -85,20 +85,20 @@ export function useFirestoreSync() {
         (snap) => {
           if (snap.metadata.hasPendingWrites) return
           const state = useStudyPlanStore.getState()
-          const nextMap = new Map(state.topicProgress)
+          const nextRecord = { ...state.topicProgress }
           snap.docChanges().forEach((change) => {
             const data = change.doc.data() as TopicProgress
             if (change.type === 'removed') {
-              nextMap.delete(change.doc.id)
+              delete nextRecord[change.doc.id]
             } else {
-              nextMap.set(change.doc.id, {
+              nextRecord[change.doc.id] = {
                 ...data,
                 id: change.doc.id,
                 syncStatus: 'synced',
-              })
+              }
             }
           })
-          useStudyPlanStore.setState({ topicProgress: nextMap })
+          useStudyPlanStore.setState({ topicProgress: nextRecord })
         },
         (err) => console.error('Firestore progress snapshot error:', err)
       )

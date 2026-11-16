@@ -75,6 +75,19 @@ export async function upsertTaskCompletion(
   }
 }
 
+export async function deleteTaskCompletion(
+  userId: string,
+  blockId: string
+): Promise<void> {
+  if (isDemoMode || !userId) return
+  try {
+    const docRef = doc(db, 'users', userId, 'taskCompletions', blockId)
+    await deleteDoc(docRef)
+  } catch (error) {
+    console.error(`Error deleting task completion ${blockId} from Firestore:`, error)
+  }
+}
+
 // ── Topic Progress ──────────────────────────────────────────
 
 export async function getAllTopicProgress(

@@ -6,6 +6,8 @@ import { LoginPage } from '@/components/auth/LoginPage'
 import { RegisterPage } from '@/components/auth/RegisterPage'
 import { ForgotPasswordPage } from '@/components/auth/ForgotPasswordPage'
 import { useAuthStore } from '@/store/useAuthStore'
+import { useStudyPlanStore } from '@/store/useStudyPlanStore'
+import { useFirestoreSync } from '@/hooks/useFirestoreSync'
 
 // Lazy-loaded pages
 const TodayPage = React.lazy(() => import('@/pages/TodayPage'))
@@ -39,12 +41,23 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  const initialize = useAuthStore((s) => s.initialize)
+  const initializeAuth = useAuthStore((s) => s.initialize)
+  const user = useAuthStore((s) => s.user)
+  const initialized = useAuthStore((s) => s.initialized)
+  const initializeStore = useStudyPlanStore((s) => s.initializeStore)
+
+  useFirestoreSync()
 
   useEffect(() => {
-    const unsubscribe = initialize()
+    const unsubscribe = initializeAuth()
     return unsubscribe
-  }, [initialize])
+  }, [initializeAuth])
+
+  useEffect(() => {
+    if (initialized) {
+      initializeStore(user?.uid || 'default_user')
+    }
+  }, [user?.uid, initialized, initializeStore])
 
   return (
     <Routes>

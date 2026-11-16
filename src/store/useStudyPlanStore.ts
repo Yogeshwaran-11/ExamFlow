@@ -9,7 +9,6 @@ import {
   Note,
   UserSettings,
   ActiveTimer,
-  CompletionStatus,
   TopicStatus,
   RecallResult,
   PendingChange,
@@ -17,6 +16,7 @@ import {
 import {
   getTaskCompletions,
   upsertTaskCompletion,
+  deleteTaskCompletion,
   getAllTopicProgress,
   upsertTopicProgress,
   getRecallTasks,
@@ -49,8 +49,8 @@ const defaultSettings: UserSettings = {
 export interface StudyPlanState {
   // ── State ──────────────────────────────────────────────────
   studyPlan: StudyPlan | null
-  taskCompletions: Map<string, TaskCompletion>
-  topicProgress: Map<string, TopicProgress>
+  taskCompletions: Record<string, TaskCompletion>
+  topicProgress: Record<string, TopicProgress>
   recallTasks: RecallTask[]
   studySessions: StudySession[]
   notes: Note[]
@@ -69,6 +69,7 @@ export interface StudyPlanState {
   markBlockComplete: (blockId: string, actualMinutes?: number, notes?: string) => Promise<void>
   markBlockPartial: (blockId: string, actualMinutes: number, notes?: string) => Promise<void>
   skipBlock: (blockId: string, reason?: string) => Promise<void>
+  resetBlock: (blockId: string) => Promise<void>
 
   // Topic progress & Spaced repetition
   setTopicStatus: (
@@ -134,17 +135,43 @@ function loadFromLocalStorage<T>(key: string, fallback: T): T {
   }
 }
 
+function loadInitialCompletions(): Record<string, TaskCompletion> {
+  const list: TaskCompletion[] = loadFromLocalStorage('examflow_completions', [])
+  const map: Record<string, TaskCompletion> = {}
+  if (Array.isArray(list)) {
+    list.forEach((c) => {
+      if (c && c.blockId) {
+        map[c.blockId] = c
+      }
+    })
+  }
+  return map
+}
+
+function loadInitialTopics(): Record<string, TopicProgress> {
+  const list: TopicProgress[] = loadFromLocalStorage('examflow_topics', [])
+  const map: Record<string, TopicProgress> = {}
+  if (Array.isArray(list)) {
+    list.forEach((p) => {
+      if (p && p.id) {
+        map[p.id] = p
+      }
+    })
+  }
+  return map
+}
+
 export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
   studyPlan: studyPlanJson as unknown as StudyPlan,
-  taskCompletions: new Map<string, TaskCompletion>(),
-  topicProgress: new Map<string, TopicProgress>(),
-  recallTasks: [],
-  studySessions: [],
-  notes: [],
-  settings: null,
+  taskCompletions: loadInitialCompletions(),
+  topicProgress: loadInitialTopics(),
+  recallTasks: loadFromLocalStorage('examflow_recalls', []),
+  studySessions: loadFromLocalStorage('examflow_sessions', []),
+  notes: loadFromLocalStorage('examflow_notes', []),
+  settings: loadFromLocalStorage('examflow_settings', defaultSettings),
   syncStatus: 'idle',
   pendingSync: [],
-  activeTimer: null,
+  activeTimer: loadFromLocalStorage('examflow_activeTimer', null),
   currentUserId: 'default_user',
 
   initializeStore: async (userId = 'default_user') => {
@@ -156,15 +183,27 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
       `examflow_${userId}_completions`,
       loadFromLocalStorage('examflow_completions', [])
     )
-    const completionsMap = new Map<string, TaskCompletion>()
-    localCompletionsList.forEach((c) => completionsMap.set(c.blockId, c))
+    const completionsRecord: Record<string, TaskCompletion> = { ...get().taskCompletions }
+    if (Array.isArray(localCompletionsList)) {
+      localCompletionsList.forEach((c) => {
+        if (c && c.blockId) {
+          completionsRecord[c.blockId] = c
+        }
+      })
+    }
 
     const localProgressList: TopicProgress[] = loadFromLocalStorage(
       `examflow_${userId}_topics`,
       loadFromLocalStorage('examflow_topics', [])
     )
-    const progressMap = new Map<string, TopicProgress>()
-    localProgressList.forEach((p) => progressMap.set(p.id, p))
+    const progressRecord: Record<string, TopicProgress> = { ...get().topicProgress }
+    if (Array.isArray(localProgressList)) {
+      localProgressList.forEach((p) => {
+        if (p && p.id) {
+          progressRecord[p.id] = p
+        }
+      })
+    }
 
     const localRecalls: RecallTask[] = loadFromLocalStorage(
       `examflow_${userId}_recalls`,
@@ -183,18 +222,18 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
 
     const localSettings: UserSettings = loadFromLocalStorage(
       `examflow_${userId}_settings`,
-      { ...defaultSettings, userId }
+      loadFromLocalStorage('examflow_settings', { ...defaultSettings, userId })
     )
 
     const activeTimer: ActiveTimer | null = loadFromLocalStorage(
       `examflow_${userId}_activeTimer`,
-      null
+      loadFromLocalStorage('examflow_activeTimer', null)
     )
 
     set({
       studyPlan: plan,
-      taskCompletions: completionsMap,
-      topicProgress: progressMap,
+      taskCompletions: completionsRecord,
+      topicProgress: progressRecord,
       recallTasks: localRecalls,
       studySessions: localSessions,
       notes: localNotes,
@@ -226,15 +265,19 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
         ])
 
       // Merge completions
-      const nextCompletions = new Map(get().taskCompletions)
+      const nextCompletions: Record<string, TaskCompletion> = { ...get().taskCompletions }
       remoteCompletions.forEach((rc) => {
-        nextCompletions.set(rc.blockId, { ...rc, syncStatus: 'synced' })
+        if (rc && rc.blockId) {
+          nextCompletions[rc.blockId] = { ...rc, syncStatus: 'synced' }
+        }
       })
 
       // Merge topic progress
-      const nextProgress = new Map(get().topicProgress)
+      const nextProgress: Record<string, TopicProgress> = { ...get().topicProgress }
       remoteProgress.forEach((rp) => {
-        nextProgress.set(rp.id, { ...rp, syncStatus: 'synced' })
+        if (rp && rp.id) {
+          nextProgress[rp.id] = { ...rp, syncStatus: 'synced' }
+        }
       })
 
       // Merge recalls
@@ -274,8 +317,10 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
       })
 
       // Sync local storage mirror
-      saveToLocalStorage(`examflow_${userId}_completions`, Array.from(nextCompletions.values()))
-      saveToLocalStorage(`examflow_${userId}_topics`, Array.from(nextProgress.values()))
+      saveToLocalStorage(`examflow_${userId}_completions`, Object.values(nextCompletions))
+      saveToLocalStorage('examflow_completions', Object.values(nextCompletions))
+      saveToLocalStorage(`examflow_${userId}_topics`, Object.values(nextProgress))
+      saveToLocalStorage('examflow_topics', Object.values(nextProgress))
       saveToLocalStorage(`examflow_${userId}_recalls`, mergedRecalls)
       saveToLocalStorage(`examflow_${userId}_sessions`, mergedSessions)
       saveToLocalStorage(`examflow_${userId}_notes`, mergedNotes)
@@ -300,17 +345,17 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
       const pendingChanges: PendingChange[] = []
 
       for (const id of pendingSync) {
-        if (taskCompletions.has(id)) {
+        if (taskCompletions[id]) {
           pendingChanges.push({
             collection: 'taskCompletions',
             id,
-            data: taskCompletions.get(id) as unknown as Record<string, unknown>,
+            data: taskCompletions[id] as unknown as Record<string, unknown>,
           })
-        } else if (topicProgress.has(id)) {
+        } else if (topicProgress[id]) {
           pendingChanges.push({
             collection: 'topicProgress',
             id,
-            data: topicProgress.get(id) as unknown as Record<string, unknown>,
+            data: topicProgress[id] as unknown as Record<string, unknown>,
           })
         } else {
           const recall = recallTasks.find((r) => r.id === id)
@@ -367,17 +412,23 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
   // ── Block Completions ───────────────────────────────────────
 
   markBlockComplete: async (blockId: string, actualMinutes?: number, notes?: string) => {
+    // If actualMinutes is 0, user requested a reset
+    if (actualMinutes === 0) {
+      await get().resetBlock(blockId)
+      return
+    }
+
     const { currentUserId, taskCompletions, pendingSync } = get()
     const now = new Date().toISOString()
     const date = blockId.split('-').slice(0, 3).join('-') || getTodayISODate()
 
-    const existing = taskCompletions.get(blockId)
+    const existing = taskCompletions[blockId]
     const updated: TaskCompletion = {
       id: blockId,
       blockId,
       userId: currentUserId,
       date: existing?.date || date,
-      status: 'complete',
+      status: 'completed',
       actualMinutes: actualMinutes ?? existing?.actualMinutes ?? 60,
       notes: notes !== undefined ? notes : existing?.notes,
       syncStatus: 'local',
@@ -385,26 +436,48 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
       updatedAt: now,
     }
 
-    const nextMap = new Map(taskCompletions)
-    nextMap.set(blockId, updated)
+    const nextRecord = { ...taskCompletions, [blockId]: updated }
     const nextPending = Array.from(new Set([...pendingSync, blockId]))
 
-    set({ taskCompletions: nextMap, pendingSync: nextPending })
-    saveToLocalStorage(`examflow_${currentUserId}_completions`, Array.from(nextMap.values()))
-    saveToLocalStorage('examflow_completions', Array.from(nextMap.values()))
+    set({ taskCompletions: nextRecord, pendingSync: nextPending })
+    const completionsList = Object.values(nextRecord)
+    saveToLocalStorage(`examflow_${currentUserId}_completions`, completionsList)
+    saveToLocalStorage('examflow_completions', completionsList)
 
     // Upsert to Firestore
     if (currentUserId && currentUserId !== 'default_user') {
       try {
         await upsertTaskCompletion(currentUserId, updated)
         updated.syncStatus = 'synced'
-        nextMap.set(blockId, updated)
-        set({
-          taskCompletions: new Map(nextMap),
-          pendingSync: get().pendingSync.filter((id) => id !== blockId),
-        })
+        set((state) => ({
+          taskCompletions: { ...state.taskCompletions, [blockId]: updated },
+          pendingSync: state.pendingSync.filter((id) => id !== blockId),
+        }))
       } catch (err) {
         console.error('Failed to sync task completion, queued for retry:', err)
+      }
+    }
+  },
+
+  resetBlock: async (blockId: string) => {
+    const { currentUserId, taskCompletions, pendingSync } = get()
+    const nextRecord = { ...taskCompletions }
+    delete nextRecord[blockId]
+
+    set({
+      taskCompletions: nextRecord,
+      pendingSync: pendingSync.filter((id) => id !== blockId),
+    })
+
+    const completionsList = Object.values(nextRecord)
+    saveToLocalStorage(`examflow_${currentUserId}_completions`, completionsList)
+    saveToLocalStorage('examflow_completions', completionsList)
+
+    if (currentUserId && currentUserId !== 'default_user') {
+      try {
+        await deleteTaskCompletion(currentUserId, blockId)
+      } catch (err) {
+        console.error('Failed to delete task completion from Firestore:', err)
       }
     }
   },
@@ -414,7 +487,7 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
     const now = new Date().toISOString()
     const date = blockId.split('-').slice(0, 3).join('-') || getTodayISODate()
 
-    const existing = taskCompletions.get(blockId)
+    const existing = taskCompletions[blockId]
     const updated: TaskCompletion = {
       id: blockId,
       blockId,
@@ -428,23 +501,22 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
       updatedAt: now,
     }
 
-    const nextMap = new Map(taskCompletions)
-    nextMap.set(blockId, updated)
+    const nextRecord = { ...taskCompletions, [blockId]: updated }
     const nextPending = Array.from(new Set([...pendingSync, blockId]))
 
-    set({ taskCompletions: nextMap, pendingSync: nextPending })
-    saveToLocalStorage(`examflow_${currentUserId}_completions`, Array.from(nextMap.values()))
-    saveToLocalStorage('examflow_completions', Array.from(nextMap.values()))
+    set({ taskCompletions: nextRecord, pendingSync: nextPending })
+    const completionsList = Object.values(nextRecord)
+    saveToLocalStorage(`examflow_${currentUserId}_completions`, completionsList)
+    saveToLocalStorage('examflow_completions', completionsList)
 
     if (currentUserId && currentUserId !== 'default_user') {
       try {
         await upsertTaskCompletion(currentUserId, updated)
         updated.syncStatus = 'synced'
-        nextMap.set(blockId, updated)
-        set({
-          taskCompletions: new Map(nextMap),
-          pendingSync: get().pendingSync.filter((id) => id !== blockId),
-        })
+        set((state) => ({
+          taskCompletions: { ...state.taskCompletions, [blockId]: updated },
+          pendingSync: state.pendingSync.filter((id) => id !== blockId),
+        }))
       } catch (err) {
         console.error('Failed to sync partial task completion:', err)
       }
@@ -456,7 +528,7 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
     const now = new Date().toISOString()
     const date = blockId.split('-').slice(0, 3).join('-') || getTodayISODate()
 
-    const existing = taskCompletions.get(blockId)
+    const existing = taskCompletions[blockId]
     const updated: TaskCompletion = {
       id: blockId,
       blockId,
@@ -470,23 +542,22 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
       updatedAt: now,
     }
 
-    const nextMap = new Map(taskCompletions)
-    nextMap.set(blockId, updated)
+    const nextRecord = { ...taskCompletions, [blockId]: updated }
     const nextPending = Array.from(new Set([...pendingSync, blockId]))
 
-    set({ taskCompletions: nextMap, pendingSync: nextPending })
-    saveToLocalStorage(`examflow_${currentUserId}_completions`, Array.from(nextMap.values()))
-    saveToLocalStorage('examflow_completions', Array.from(nextMap.values()))
+    set({ taskCompletions: nextRecord, pendingSync: nextPending })
+    const completionsList = Object.values(nextRecord)
+    saveToLocalStorage(`examflow_${currentUserId}_completions`, completionsList)
+    saveToLocalStorage('examflow_completions', completionsList)
 
     if (currentUserId && currentUserId !== 'default_user') {
       try {
         await upsertTaskCompletion(currentUserId, updated)
         updated.syncStatus = 'synced'
-        nextMap.set(blockId, updated)
-        set({
-          taskCompletions: new Map(nextMap),
-          pendingSync: get().pendingSync.filter((id) => id !== blockId),
-        })
+        set((state) => ({
+          taskCompletions: { ...state.taskCompletions, [blockId]: updated },
+          pendingSync: state.pendingSync.filter((id) => id !== blockId),
+        }))
       } catch (err) {
         console.error('Failed to sync skipped block:', err)
       }
@@ -505,7 +576,7 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
     const now = new Date().toISOString()
     const progressId = `${currentUserId}_${topicId}`
 
-    const existing = topicProgress.get(progressId)
+    const existing = topicProgress[progressId]
     const updated: TopicProgress = {
       id: progressId,
       userId: currentUserId,
@@ -523,23 +594,22 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
       updatedAt: now,
     }
 
-    const nextProgress = new Map(topicProgress)
-    nextProgress.set(progressId, updated)
+    const nextProgress = { ...topicProgress, [progressId]: updated }
     const nextPending = Array.from(new Set([...pendingSync, progressId]))
 
     set({ topicProgress: nextProgress, pendingSync: nextPending })
-    saveToLocalStorage(`examflow_${currentUserId}_topics`, Array.from(nextProgress.values()))
-    saveToLocalStorage('examflow_topics', Array.from(nextProgress.values()))
+    const progressList = Object.values(nextProgress)
+    saveToLocalStorage(`examflow_${currentUserId}_topics`, progressList)
+    saveToLocalStorage('examflow_topics', progressList)
 
     if (currentUserId && currentUserId !== 'default_user') {
       try {
         await upsertTopicProgress(currentUserId, updated)
         updated.syncStatus = 'synced'
-        nextProgress.set(progressId, updated)
-        set({
-          topicProgress: new Map(nextProgress),
-          pendingSync: get().pendingSync.filter((id) => id !== progressId),
-        })
+        set((state) => ({
+          topicProgress: { ...state.topicProgress, [progressId]: updated },
+          pendingSync: state.pendingSync.filter((id) => id !== progressId),
+        }))
       } catch (err) {
         console.error('Failed to sync topic progress:', err)
       }
@@ -634,18 +704,27 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
 
     // If forgotten, mark related topic as weak/needs_practice
     if (result === 'forgot' && target.topicName) {
-      for (const [pId, prog] of topicProgress.entries()) {
+      const updatedTopics = { ...topicProgress }
+      let touched = false
+      for (const [pId, prog] of Object.entries(updatedTopics)) {
         if (prog.topicName === target.topicName || prog.topicId === target.topicId) {
-          prog.isWeak = true
-          prog.status = 'needs_practice'
-          prog.updatedAt = now
-          topicProgress.set(pId, prog)
-          saveToLocalStorage(`examflow_${currentUserId}_topics`, Array.from(topicProgress.values()))
+          updatedTopics[pId] = {
+            ...prog,
+            isWeak: true,
+            status: 'needs_practice',
+            updatedAt: now,
+          }
+          touched = true
           if (currentUserId && currentUserId !== 'default_user') {
-            upsertTopicProgress(currentUserId, prog).catch(console.error)
+            upsertTopicProgress(currentUserId, updatedTopics[pId]).catch(console.error)
           }
           break
         }
+      }
+      if (touched) {
+        set({ topicProgress: updatedTopics })
+        saveToLocalStorage(`examflow_${currentUserId}_topics`, Object.values(updatedTopics))
+        saveToLocalStorage('examflow_topics', Object.values(updatedTopics))
       }
     }
 
@@ -980,8 +1059,8 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
       version: '1.0.0',
       exportedAt: new Date().toISOString(),
       userId: state.currentUserId,
-      taskCompletions: Array.from(state.taskCompletions.values()),
-      topicProgress: Array.from(state.topicProgress.values()),
+      taskCompletions: Object.values(state.taskCompletions),
+      topicProgress: Object.values(state.topicProgress),
       recallTasks: state.recallTasks,
       studySessions: state.studySessions,
       notes: state.notes,
@@ -996,14 +1075,18 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
       if (!data || typeof data !== 'object') return false
 
       const { currentUserId } = get()
-      const completionsMap = new Map<string, TaskCompletion>()
+      const completionsRecord: Record<string, TaskCompletion> = {}
       if (Array.isArray(data.taskCompletions)) {
-        data.taskCompletions.forEach((c: TaskCompletion) => completionsMap.set(c.blockId, c))
+        data.taskCompletions.forEach((c: TaskCompletion) => {
+          if (c && c.blockId) completionsRecord[c.blockId] = c
+        })
       }
 
-      const progressMap = new Map<string, TopicProgress>()
+      const progressRecord: Record<string, TopicProgress> = {}
       if (Array.isArray(data.topicProgress)) {
-        data.topicProgress.forEach((p: TopicProgress) => progressMap.set(p.id, p))
+        data.topicProgress.forEach((p: TopicProgress) => {
+          if (p && p.id) progressRecord[p.id] = p
+        })
       }
 
       const recalls = Array.isArray(data.recallTasks) ? data.recallTasks : []
@@ -1012,8 +1095,8 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
       const settings = data.settings || get().settings
 
       set({
-        taskCompletions: completionsMap,
-        topicProgress: progressMap,
+        taskCompletions: completionsRecord,
+        topicProgress: progressRecord,
         recallTasks: recalls,
         studySessions: sessions,
         notes,
@@ -1021,8 +1104,12 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
       })
 
       // Mirror imported data into local storage
-      saveToLocalStorage(`examflow_${currentUserId}_completions`, Array.from(completionsMap.values()))
-      saveToLocalStorage(`examflow_${currentUserId}_topics`, Array.from(progressMap.values()))
+      const completionsList = Object.values(completionsRecord)
+      const progressList = Object.values(progressRecord)
+      saveToLocalStorage(`examflow_${currentUserId}_completions`, completionsList)
+      saveToLocalStorage('examflow_completions', completionsList)
+      saveToLocalStorage(`examflow_${currentUserId}_topics`, progressList)
+      saveToLocalStorage('examflow_topics', progressList)
       saveToLocalStorage(`examflow_${currentUserId}_recalls`, recalls)
       saveToLocalStorage(`examflow_${currentUserId}_sessions`, sessions)
       saveToLocalStorage(`examflow_${currentUserId}_notes`, notes)
@@ -1037,8 +1124,8 @@ export const useStudyPlanStore = create<StudyPlanState>((set, get) => ({
 
   clearStore: () => {
     set({
-      taskCompletions: new Map(),
-      topicProgress: new Map(),
+      taskCompletions: {},
+      topicProgress: {},
       recallTasks: [],
       studySessions: [],
       notes: [],

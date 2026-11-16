@@ -148,6 +148,11 @@ export default function TodayPage() {
     actualMinutes?: number,
     notes?: string
   ) => {
+    if (actualMinutes === 0) {
+      markBlockComplete(blockId, 0, notes)
+      toast('Block reset to uncompleted', { icon: '🔄' })
+      return
+    }
     markBlockComplete(blockId, actualMinutes, notes)
     toast.success('Block marked as complete!')
   }

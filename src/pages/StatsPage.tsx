@@ -40,23 +40,23 @@ export default function StatsPage() {
 
   const totalStudyHours = (totalActualMinutes / 60).toFixed(1)
 
-  // Count completed tasks (from localStorage + Zustand store)
-  const storeCompletedCount = (() => {
+  // Count completed tasks (unique by blockId from localStorage + Zustand store)
+  const completedTasksCount = useMemo(() => {
+    const ids = new Set<string>()
+    completions.forEach((c: any) => {
+      if (c.status === 'complete' || c.status === 'completed') ids.add(c.blockId || c.id)
+    })
     if (storeTaskCompletions instanceof Map) {
-      let count = 0
       storeTaskCompletions.forEach((c: any) => {
-        if (c.status === 'completed' || c.status === 'complete') count++
+        if (c.status === 'complete' || c.status === 'completed') ids.add(c.blockId || c.id)
       })
-      return count
+    } else if (storeTaskCompletions && typeof storeTaskCompletions === 'object') {
+      Object.values(storeTaskCompletions).forEach((c: any) => {
+        if (c.status === 'complete' || c.status === 'completed') ids.add(c.blockId || c.id)
+      })
     }
-    return Object.values(storeTaskCompletions as Record<string, any>).filter(
-      (c: any) => c.status === 'completed' || c.status === 'complete'
-    ).length
-  })()
-
-  const completedTasksCount =
-    completions.filter((c: any) => c.status === 'complete' || c.status === 'completed').length +
-    storeCompletedCount
+    return ids.size
+  }, [completions, storeTaskCompletions])
   const learnedTopicsCount = topics.filter(
     (t: any) => t.status === 'learned' || t.status === 'mastered' || t.status === 'revised'
   ).length
