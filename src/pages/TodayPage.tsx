@@ -24,6 +24,8 @@ import { StudyBlockCard } from '@/components/today/StudyBlockCard'
 import { RecallTaskCard } from '@/components/today/RecallTaskCard'
 import { WeakTopicsPanel, WeakTopicItem } from '@/components/today/WeakTopicsPanel'
 import { CatchUpSection, OverdueTask } from '@/components/today/CatchUpSection'
+import { HighPriorityPanel } from '@/components/syllabus/HighPriorityPanel'
+import { PendingTasksPanel } from '@/components/syllabus/PendingTasksPanel'
 import { formatDate, daysUntil } from '@/lib/date-utils'
 import type { RecallResult } from '@/models'
 
@@ -292,6 +294,9 @@ export default function TodayPage() {
         examSubjectName={examSubject?.name}
       />
 
+      {/* 4b. High Priority Panel */}
+      <HighPriorityPanel maxItems={4} />
+
       {/* 5. Today's Study Blocks List */}
       <section className="space-y-3">
         <div className="flex items-center justify-between">
@@ -383,6 +388,9 @@ export default function TodayPage() {
         onCompleteBlock={handleCompleteBlock}
         onSkipBlock={handleSkipBlock}
       />
+
+      {/* 8b. Pending Tasks Panel */}
+      <PendingTasksPanel maxItems={5} />
 
       {/* 9. Floating FAB — Start Focus Session */}
       <div className="fixed bottom-20 right-4 z-30">

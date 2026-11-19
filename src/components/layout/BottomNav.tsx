@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom'
-import { Home, Calendar, BookOpen, BarChart2, FileText } from 'lucide-react'
+import { Home, Calendar, BookOpen, BookMarked, FileText } from 'lucide-react'
 
 const tabs = [
   { to: '/', label: 'Today', icon: Home, exact: true },
   { to: '/plan', label: 'Plan', icon: Calendar, exact: false },
   { to: '/subjects', label: 'Subjects', icon: BookOpen, exact: false },
-  { to: '/stats', label: 'Stats', icon: BarChart2, exact: false },
+  { to: '/syllabus', label: 'Syllabus', icon: BookMarked, exact: false },
   { to: '/notes', label: 'Notes', icon: FileText, exact: false },
 ]
 

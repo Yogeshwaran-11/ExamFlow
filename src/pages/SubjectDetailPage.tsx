@@ -1,9 +1,12 @@
-﻿import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import studyPlan from '@/data/study_plan.json'
+import { ALL_SUBJECTS_SYLLABUS } from '@/data/syllabusData'
 import { ExamReadiness } from '@/components/subjects/ExamReadiness'
 import { TopicList, TopicItem, ExtendedTopicStatus } from '@/components/subjects/TopicList'
+import { SyllabusUnitAccordion } from '@/components/syllabus/SyllabusUnitAccordion'
 import { useSubjectProgress } from '@/hooks/useSubjectProgress'
+import { useSyllabusStore } from '@/store/useSyllabusStore'
 import { Note } from '@/models'
 import {
   Calendar,
@@ -14,6 +17,7 @@ import {
   RotateCcw,
   CheckCircle2,
   ExternalLink,
+  BookMarked,
 } from 'lucide-react'
 
 export default function SubjectDetailPage() {
@@ -22,6 +26,11 @@ export default function SubjectDetailPage() {
 
   const readiness = subjectId ? getSubjectReadiness(subjectId) : undefined
   const subjectMeta = studyPlan.subjects.find((s) => s.id === subjectId)
+
+  // Syllabus data for this subject
+  const subjectSyllabus = ALL_SUBJECTS_SYLLABUS.find((s) => s.id === subjectId || s.subjectId === subjectId)
+  const syllabusTopicRecords = useSyllabusStore((s) => s.topicRecords)
+  const getSubjectCompletion = useSyllabusStore((s) => s.getSubjectCompletion)
 
   // Collect all topic items across 24 days for this subject
   const initialTopics = useMemo(() => {
@@ -343,6 +352,43 @@ export default function SubjectDetailPage() {
           </div>
         )}
       </div>
+
+      {/* Full Syllabus Section */}
+      {subjectSyllabus && (
+        <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <BookMarked className="w-5 h-5 text-primary-500" />
+              <div>
+                <h3 className="text-base font-bold text-gray-900 dark:text-white">Full Syllabus</h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  All units and topics — track your coverage
+                </p>
+              </div>
+            </div>
+            {subjectId && (
+              <div className="text-right">
+                <span className="text-2xl font-black text-primary-600 dark:text-primary-400">
+                  {getSubjectCompletion(subjectId)}%
+                </span>
+                <p className="text-[10px] text-gray-400 mt-0.5">completed</p>
+              </div>
+            )}
+          </div>
+
+          <div className="space-y-3">
+            {subjectSyllabus.units.map((unit, idx) => (
+              <SyllabusUnitAccordion
+                key={unit.number ?? unit.unitNumber ?? idx}
+                unit={unit}
+                subjectId={subjectId!}
+                isOpen={false}
+                onToggle={() => {}}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -7,6 +7,7 @@ import { RegisterPage } from '@/components/auth/RegisterPage'
 import { ForgotPasswordPage } from '@/components/auth/ForgotPasswordPage'
 import { useAuthStore } from '@/store/useAuthStore'
 import { useStudyPlanStore } from '@/store/useStudyPlanStore'
+import { useSyllabusStore } from '@/store/useSyllabusStore'
 import { useFirestoreSync } from '@/hooks/useFirestoreSync'
 
 // Lazy-loaded pages
@@ -14,6 +15,7 @@ const TodayPage = React.lazy(() => import('@/pages/TodayPage'))
 const PlanPage = React.lazy(() => import('@/pages/PlanPage'))
 const SubjectsPage = React.lazy(() => import('@/pages/SubjectsPage'))
 const SubjectDetailPage = React.lazy(() => import('@/pages/SubjectDetailPage'))
+const SyllabusPage = React.lazy(() => import('@/pages/SyllabusPage'))
 const StatsPage = React.lazy(() => import('@/pages/StatsPage'))
 const NotesPage = React.lazy(() => import('@/pages/NotesPage'))
 const SettingsPage = React.lazy(() => import('@/pages/SettingsPage'))
@@ -45,6 +47,7 @@ export default function App() {
   const user = useAuthStore((s) => s.user)
   const initialized = useAuthStore((s) => s.initialized)
   const initializeStore = useStudyPlanStore((s) => s.initializeStore)
+  const initializeSyllabus = useSyllabusStore((s) => s.initializeSyllabus)
 
   useFirestoreSync()
 
@@ -56,8 +59,9 @@ export default function App() {
   useEffect(() => {
     if (initialized) {
       initializeStore(user?.uid || 'default_user')
+      initializeSyllabus(user?.uid || 'default_user')
     }
-  }, [user?.uid, initialized, initializeStore])
+  }, [user?.uid, initialized, initializeStore, initializeSyllabus])
 
   return (
     <Routes>
@@ -100,6 +104,22 @@ export default function App() {
         }
       />
       <Route
+        path="/syllabus"
+        element={
+          <ProtectedRoute>
+            <SyllabusPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/syllabus/:subjectId"
+        element={
+          <ProtectedRoute>
+            <SyllabusPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
         path="/stats"
         element={
           <ProtectedRoute>
@@ -136,6 +156,22 @@ export default function App() {
         element={
           <ProtectedRoute>
             <ExamMorningPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/syllabus"
+        element={
+          <ProtectedRoute>
+            <SyllabusPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/syllabus/:subjectId"
+        element={
+          <ProtectedRoute>
+            <SyllabusPage />
           </ProtectedRoute>
         }
       />
